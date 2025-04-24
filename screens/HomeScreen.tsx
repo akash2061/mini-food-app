@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../services/firebase';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { CartContext } from '../context/CartContext';
+import localData from '../services/firebaseDB_guide.json'; // Import local data - For Testing
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../services/firebase';
 
 interface FoodItem {
     id: string;
@@ -19,9 +20,14 @@ const HomeScreen: React.FC = () => {
     const { addToCart } = useContext(CartContext)!;
     const [quantities, setQuantities] = React.useState<{ [key: string]: number }>({});
 
+    // Fetch menu items from Firebase
+    // If fetching fails, fallback to local data
+    // This is a temporary solution for testing purposes
+    // In a production app, handle this more gracefully
     React.useEffect(() => {
         const fetchMenuItems = async () => {
             try {
+                // Attempt to fetch data from Firebase
                 const querySnapshot = await getDocs(collection(db, 'menuItems'));
                 const items = querySnapshot.docs.map((doc) => ({
                     id: doc.id,
@@ -29,7 +35,10 @@ const HomeScreen: React.FC = () => {
                 })) as FoodItem[];
                 setFoodItems(items);
             } catch (error) {
-                console.error('Error fetching menu items:', error);
+                console.error('Error fetching menu items from Firebase:', error);
+                // Fallback to local data
+                const items = Object.values(localData.menuItems) as FoodItem[];
+                setFoodItems(items);
             } finally {
                 setLoading(false);
             }
@@ -201,6 +210,5 @@ const styles = StyleSheet.create({
         backgroundColor: '#CCCCCC',
     },
 });
-
 
 export default HomeScreen;
