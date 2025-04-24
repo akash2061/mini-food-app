@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { CartContext } from '../context/CartContext';
-import localData from '../services/firebaseDB_guide.json'; // Import local data - For Testing
+import localData from '../services/firebaseDB_guide.json'; // Import local data
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../services/firebase';
+import { db } from '../services/firebase'; // Firebase configuration
 
 interface FoodItem {
     id: string;
@@ -20,10 +20,6 @@ const HomeScreen: React.FC = () => {
     const { addToCart } = useContext(CartContext)!;
     const [quantities, setQuantities] = React.useState<{ [key: string]: number }>({});
 
-    // Fetch menu items from Firebase
-    // If fetching fails, fallback to local data
-    // This is a temporary solution for testing purposes
-    // In a production app, handle this more gracefully
     React.useEffect(() => {
         const fetchMenuItems = async () => {
             try {
@@ -37,7 +33,10 @@ const HomeScreen: React.FC = () => {
             } catch (error) {
                 console.error('Error fetching menu items from Firebase:', error);
                 // Fallback to local data
-                const items = Object.values(localData.menuItems) as FoodItem[];
+                const items = Object.entries(localData.menuItems).map(([id, item]) => ({
+                    id, // Assign the key as the id
+                    ...item,
+                })) as FoodItem[];
                 setFoodItems(items);
             } finally {
                 setLoading(false);

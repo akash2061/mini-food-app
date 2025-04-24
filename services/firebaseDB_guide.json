@@ -1,20 +1,16 @@
 {
   "menuItems": {
     "item1": {
-      "id": "item1",
       "name": "Margherita Pizza",
       "description": "Classic cheese and tomato pizza",
       "price": 8.99,
-      "image": "https://imgs.search.brave.com/U-hWe4pS0aQTwhnc9IZj3bnodKjHRy6PuLzaZoGRq3E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTg0/OTQ2NzAxL3Bob3Rv/L3BpenphLmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz05N3Jj/MFZJaS1zM21uNHhl/NHhEeTlTLVhKX09o/Ym45MlhhRU1haUlE/X2VZPQ",
-      "category": "Pizza"
+      "image": "https://imgs.search.brave.com/U-hWe4pS0aQTwhnc9IZj3bnodKjHRy6PuLzaZoGRq3E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTg0/OTQ2NzAxL3Bob3Rv/L3BpenphLmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz05N3Jj/MFZJaS1zM21uNHhl/NHhEeTlTLVhKX09o/Ym45MlhhRU1haUlE/X2VZPQ"
     },
     "item2": {
-      "id": "item2",
       "name": "Cheeseburger",
       "description": "Juicy beef burger with cheese",
       "price": 6.99,
-      "image": "https://imgs.search.brave.com/6K4rBiLiwzsXdOW3C4XaSCRwVCjPvt2H58u0ErR6Gpw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2E3Lzhm/Lzk1L2E3OGY5NTM0/MjRkMzRiYmY5Njk0/NjEwZWQ1ZDdhMDAz/LmpwZw",
-      "category": "Burger"
+      "image": "https://imgs.search.brave.com/6K4rBiLiwzsXdOW3C4XaSCRwVCjPvt2H58u0ErR6Gpw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2E3Lzhm/Lzk1L2E3OGY5NTM0/MjRkMzRiYmY5Njk0/NjEwZWQ1ZDdhMDAz/LmpwZw"
     }
   }
 }
